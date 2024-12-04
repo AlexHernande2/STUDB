@@ -29,7 +29,7 @@ document.getElementById('emailForm').addEventListener('submit', function(event) 
         if (data.success) {
             alert('¡Código de verificación enviado al correo!');
              // Redirigir al usuario a la página de validación de código
-             window.location.href = '../Html/Ingreso.html'; 
+             window.location.href = 'Html/Ingreso.html'; 
         } else {
             alert('Error al enviar el código: ' + data.message);
         }
