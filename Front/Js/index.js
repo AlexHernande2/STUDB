@@ -11,7 +11,6 @@ document.getElementById('emailForm').addEventListener('submit', function(event) 
     }
 
     //
-
     // Guardar el correo en el almacenamiento local
     localStorage.setItem('userEmail', email);
     //
@@ -29,7 +28,7 @@ document.getElementById('emailForm').addEventListener('submit', function(event) 
         if (data.success) {
             alert('¡Código de verificación enviado al correo!');
              // Redirigir al usuario a la página de validación de código
-             window.location.href = 'Html/Ingreso.html'; 
+             window.location.href = 'https://674fe14a0fbb71000820d16e--resilient-cajeta-ef72c2.netlify.app/Html/Ingreso.html'; 
         } else {
             alert('Error al enviar el código: ' + data.message);
         }
