@@ -80,6 +80,7 @@ async function handleUpload(itemId) {
             
 
             alert('Archivo cargado y enlace almacenado.');
+            location.reload(); 
         } catch (error) {
             console.error('Error al cargar el archivo:', error.message);
             alert(`Ocurrió un error: ${error.message}`);
