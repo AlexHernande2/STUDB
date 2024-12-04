@@ -134,6 +134,10 @@ function addItem(event) {
         <td class="text-center">
             ${data.ruta ? `<a href="${data.ruta}" target="_blank" class="text-primary">Enlace</a>` : "No disponible"}
         </td>
+
+        <td class="text-center">
+            <button type="button" class="btn btn-danger w-50" id="deleteBtn-${data.id}" onclick="deleteItem(${data.id})">Eliminar</button>
+        </td>
     `;
         tableBody.appendChild(newRow);
 
@@ -188,11 +192,40 @@ fetch(`https://stback-zg4f.onrender.com/items?correo=${encodeURIComponent(userEm
         <td class="text-center">
             ${item.ruta ? `<a href="${item.ruta}" target="_blank" class="text-primary">Enlace </a>` : "No disponible"}
         </td>
+        <td class="text-center">
+            <button type="button" class="btn btn-danger w-50" id="deleteBtn-${item.id}" onclick="deleteItem(${item.id})">Eliminar</button>
+        </td>
     `;
         tableBody.appendChild(newRow);
     });
 })
 .catch(error => console.error('Error al cargar los datos desde MongoDB:', error));
+
+//eliminar 
+function deleteItem(itemId) {
+    const confirmDelete = confirm(`¿Está seguro de que desea eliminar el elemento con ID ${itemId}?`);
+    if (!confirmDelete) return;
+
+    fetch(`https://stback-zg4f.onrender.com/items/${itemId}`, {
+        method: 'DELETE',
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Error al eliminar el item con ID ${itemId}`);
+        }
+        // Eliminar la fila de la tabla
+        const row = document.querySelector(`tr[data-id="${itemId}"]`);
+        if (row) {
+            row.remove();
+        }
+        alert(`Elemento con ID ${itemId} eliminado con éxito.`);
+    })
+    .catch(error => {
+        console.error('Error al eliminar el item:', error.message);
+        alert(`No se pudo eliminar el item: ${error.message}`);
+    });
+}
+
 
 
 
