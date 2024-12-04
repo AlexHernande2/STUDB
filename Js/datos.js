@@ -132,7 +132,7 @@ function addItem(event) {
             <button type="button" class="btn btn-success w-50" id="addBtn-${data.id}" onclick="handleUpload(${data.id})">Agregar</button>
         </td>
         <td class="text-center">
-            ${data.ruta ? `<a href="${data.ruta}" target="_blank" class="text-primary">Link</a>` : "No disponible"}
+            ${data.ruta ? `<a href="${data.ruta}" target="_blank" class="text-primary">Enlace</a>` : "No disponible"}
         </td>
     `;
         tableBody.appendChild(newRow);
