@@ -18,17 +18,14 @@ body{
     background-position: center;
 }
 
-.wrapper{
-    width: 420px;
-    background: transparent;
+.wrapper{ 
+    background: rgba(103 102 102 / 50%); 
     border: 2px solid rgba(255, 255, 255, .2);
-    /* Filtrar contenido  q' está detrás*/
-    backdrop-filter: blur(20px);
-    box-shadow: 0 0 10px rgba(0, 0, 0, .0);
-    color: #fff;
-    border-radius: 10px;
-    /* borde sup 30 lados 40  */
-    padding: 30px 40px;
+     backdrop-filter: blur(20px); 
+     box-shadow: 0 0 10px rgba(0, 0, 0, .0); 
+     color: #fff; 
+     border-radius: 10px; 
+     padding: 30px 40px
 
 }
 .wrapper h1{
