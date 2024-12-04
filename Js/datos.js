@@ -74,9 +74,10 @@ async function handleUpload(itemId) {
                 const row = document.querySelector(`tr[data-id="${itemId}"]`);
                 if (row) {
                     const rutaCell = row.querySelector('td:last-child');
-                    rutaCell.innerText = data.ruta; // Actualiza directamente con la ruta recibida
+                    rutaCell.innerHTML = `<a href="${data.ruta}" target="_blank" class="text-primary">Link</a>`;
                 }
             }
+            
 
             alert('Archivo cargado y enlace almacenado.');
         } catch (error) {
@@ -123,15 +124,17 @@ function addItem(event) {
         const newRow = document.createElement('tr');
         newRow.setAttribute('data-id', data.id);
 
-        newRow.innerHTML = `
-            <th scope="row">${data.id}</th>
-            <td>${data.asunto}</td>
-            <td>${data.estado}</td>
-            <td class="text-center">
-                <button type="button" class="btn btn-success w-50" id="addBtn-${data.id}" onclick="handleUpload(${data.id})">Agregar</button>
-            </td>
-            <td>${data.ruta}</td>
-        `;
+        newRow.innerHTML =  `
+        <th scope="row">${data.id}</th>
+        <td>${data.asunto}</td>
+        <td>${data.estado}</td>
+        <td class="text-center">
+            <button type="button" class="btn btn-success w-50" id="addBtn-${data.id}" onclick="handleUpload(${data.id})">Agregar</button>
+        </td>
+        <td class="text-center">
+            ${data.ruta ? `<a href="${data.ruta}" target="_blank" class="text-primary">Link</a>` : "No disponible"}
+        </td>
+    `;
         tableBody.appendChild(newRow);
 
         // Asignar el evento onclick al botón "Agregar" recién agregado
@@ -176,14 +179,16 @@ fetch(`https://stback-zg4f.onrender.com/items?correo=${encodeURIComponent(userEm
         newRow.setAttribute('data-id', item.id);
 
         newRow.innerHTML = `
-            <th scope="row">${item.id}</th>
-            <td>${item.asunto}</td>
-            <td>${item.estado}</td>
-            <td class="text-center">
-                <button type="button" class="btn btn-success w-50" id="addBtn-${item.id}" onclick="handleUpload(${item.id})">Agregar</button>
-            </td>
-            <td>${item.ruta || ''}</td>
-        `;
+        <th scope="row">${item.id}</th>
+        <td>${item.asunto}</td>
+        <td>${item.estado}</td>
+        <td class="text-center">
+            <button type="button" class="btn btn-success w-50" id="addBtn-${item.id}" onclick="handleUpload(${item.id})">Agregar</button>
+        </td>
+        <td class="text-center">
+            ${item.ruta ? `<a href="${item.ruta}" target="_blank" class="text-primary">Link</a>` : "No disponible"}
+        </td>
+    `;
         tableBody.appendChild(newRow);
     });
 })
