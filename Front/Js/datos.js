@@ -53,10 +53,10 @@ async function handleUpload(itemId) {
 
         try {
             console.log('Preparando para enviar el archivo...');
-            console.log('Ruta de la API:', `https://3392-2800-e2-ba80-854-d0f7-be11-2481-ce77.ngrok-free.app/items/${itemId}/upload`);
+            console.log('Ruta de la API:', `https://stback-zg4f.onrender.com/items/${itemId}/upload`);
             console.log('Archivo seleccionado:', file);
 
-            const response = await fetch(`https://3392-2800-e2-ba80-854-d0f7-be11-2481-ce77.ngrok-free.app/items/${itemId}/upload`, {
+            const response = await fetch(`https://stback-zg4f.onrender.com/items/${itemId}/upload`, {
                 method: 'POST',
                 body: formData,
             });
@@ -109,7 +109,7 @@ function addItem(event) {
     };
 
     // Enviar los datos al servidor
-    fetch('https://3392-2800-e2-ba80-854-d0f7-be11-2481-ce77.ngrok-free.app/items', {
+    fetch('https://stback-zg4f.onrender.com/items', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -147,7 +147,7 @@ function addItem(event) {
 }
 
 // Cargar datos desde MongoDB al cargar la página
-fetch(`https://3392-2800-e2-ba80-854-d0f7-be11-2481-ce77.ngrok-free.app/items?correo=${encodeURIComponent(userEmail)}`, {
+fetch(`https://stback-zg4f.onrender.com/items?correo=${encodeURIComponent(userEmail)}`, {
     method: 'GET',
     headers: {
         'Accept': 'application/json'

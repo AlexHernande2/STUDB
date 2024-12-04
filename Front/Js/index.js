@@ -17,7 +17,7 @@ document.getElementById('emailForm').addEventListener('submit', function(event) 
     //
 
     // Enviar el correo al backend para generar y enviar el código https://stback-zg4f.onrender.com
-    fetch('https://9816-186-114-123-249.ngrok-free.app/send-verification-code', {
+    fetch('https://stback-zg4f.onrender.com/send-verification-code', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

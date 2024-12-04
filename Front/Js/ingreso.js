@@ -3,7 +3,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 
     const codigo = document.getElementById('codigo').value;
 
-    fetch('https://9816-186-114-123-249.ngrok-free.app/validate-verification-code', {
+    fetch('https://stback-zg4f.onrender.com/validate-verification-code', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
