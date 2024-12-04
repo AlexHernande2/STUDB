@@ -74,7 +74,7 @@ async function handleUpload(itemId) {
                 const row = document.querySelector(`tr[data-id="${itemId}"]`);
                 if (row) {
                     const rutaCell = row.querySelector('td:last-child');
-                    rutaCell.innerHTML = `<a href="${data.ruta}" target="_blank" class="text-primary">Link</a>`;
+                    rutaCell.innerHTML = `<a href="${data.ruta}" target="_blank" class="text-primary">Enlace</a>`;
                 }
             }
             
@@ -186,7 +186,7 @@ fetch(`https://stback-zg4f.onrender.com/items?correo=${encodeURIComponent(userEm
             <button type="button" class="btn btn-success w-50" id="addBtn-${item.id}" onclick="handleUpload(${item.id})">Agregar</button>
         </td>
         <td class="text-center">
-            ${item.ruta ? `<a href="${item.ruta}" target="_blank" class="text-primary">Link</a>` : "No disponible"}
+            ${item.ruta ? `<a href="${item.ruta}" target="_blank" class="text-primary">Enlace </a>` : "No disponible"}
         </td>
     `;
         tableBody.appendChild(newRow);
